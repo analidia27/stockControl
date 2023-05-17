@@ -1,0 +1,43 @@
+{% extends "home.html"  %}
+
+{% block content %}
+
+    <div class="container mt-4">
+        <h1> Lista de Proveedores</h1>
+    </div>
+
+    <div class="container fluid pt-5">
+        <a href="{{'../crear'}}" class="btn btn-primary">Agregar producto</a>
+        <a href="/compras/productos/listado" class="btn btn-secondary">Productos</a>
+
+        <br>
+        <br>
+
+        <table class="table table-responsive table-bordered">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Razon social</th>
+                    <th>CUIT</th>
+                    <th>Celular</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                {% for proveedor in proveedores %}
+                <tr>
+                    <td>{{ proveedor.id }}</td>
+                    <td>{{ proveedor.razon_social }}</td>
+                    <td>{{ proveedor.cuit }}</td>
+                    <td>{{ proveedor.celular }}</td>
+
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <br>
+
+    </div>
+
+
+{% endblock %}

@@ -1,0 +1,47 @@
+{% extends "home.html"  %}
+
+{% block title %}
+ista de Productos
+{% endblock %}
+
+{% block content %}
+    <div class="container mt-4">
+        <h1> Lista de Productos </h1>
+    </div>
+
+    <div class="container fluid pt-5">
+        <a href="{{'../crear'}}" class="btn btn-primary">Agregar producto</a>
+        <a href="/compras/proveedores/listado" class="btn btn-secondary">Proveedores</a>
+
+        <br>
+        <br>
+
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th scope="col">Id</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Precio</th>
+                    <th scope="col">Stock actual</th>
+                    <th scope="col">Proveedor</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for producto in productos %}
+                <tr>
+                    <td>{{ producto.id }}</td>
+                    <td>{{ producto.nombre }}</td>
+                    <td>{{ producto.precio }}</td>
+                    <td>{{ producto.stock_actual }}</td>
+                    <td>{{ producto.proveedor }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+    </div>
+
+    
+
+
+{% endblock %}
